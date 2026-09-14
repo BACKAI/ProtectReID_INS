@@ -8,11 +8,9 @@ This directory is an independent, runnable implementation of:
 **DOI:** https://doi.org/10.1016/j.ins.2026.123803
 
 
-## Overview
+## Abstract
 
-ProtectReID is a privacy-preserving person re-identification framework that protects query images while retaining identity-discriminative information for authorized re-ID. The method retrieves identity-aligned and structurally dissimilar latent codes from a fixed gallery, combines the retrieved `W+` representations using reciprocal self-attention and mean pooling, and then performs per-image latent refinement with separate visual and identity objectives.
-
-StyleGAN3, e4e, and the re-ID extractor remain frozen. ProtectReID does not train a separate protector network; only the `14 x 512` `W+` latent code of each input image is optimized during inference.
+Modern surveillance systems track individuals across cameras by verifying whether sightings depict the same person, known as person re-identification (re-ID). Unprotected transmissions expose data to interception, creating serious privacy risks. Existing methods try to balance visual anonymization and authorized matching, yet protected images often preserve structural cues such as silhouettes or edge layouts, and many rely on randomness, offering weak resistance to model-based recovery. We propose ProtectReID, a privacy-preserving person re-ID framework that uses identity retrieval and hierarchical latent code protection to control information flow between source structure and identity discriminative cues. The method retrieves identity-aligned latent candidates and integrates them with reciprocal self-attention to alter appearance and reduce source structural transfer, improving robustness to recovery. It then performs small gradient-based latent updates to preserve identity embeddings and uses a pretrained generator to hierarchically manipulate layers, suppressing privacy-sensitive structural cues while maintaining re-ID performance. The experimental results demonstrate that ProtectReID yields pronounced visual distortion, maintains reliable re-ID accuracy, reduces recoverability under the evaluated recovery attacks, and lowers unauthorized matchability under unseen re-ID models, using off-the-shelf pretrained models with frozen network parameters and only per-image latent code optimization.
 
 
 
